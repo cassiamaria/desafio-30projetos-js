@@ -11,7 +11,7 @@ body {
     align-items: center;
     flex-direction: column;
     background-color: #333;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 h1 {
@@ -91,6 +91,13 @@ h1 {
     font-size: 15px;
     font-weight: normal;
 }
+.tempDescription {
+    color: white;
+    margin-bottom: 10px;
+}
+.tempDescription::first-letter {
+    text-transform: capitalize;
+}
 .ventoInfo span {
     font-size: 15px;
     font-weight: normal;
@@ -110,8 +117,17 @@ h1 {
     height: 1px;
     background-color: #FFF;
     transform-origin: left;
+    color: transparent;
+    font-size: 11px;
+    line-height: 15px;
 }
-
+.ventoAnguloInfo {
+    color: white;
+    margin-top: 20px;
+}
+.ventoAnguloTitulo {
+    font-size: 12px;
+}
 .aviso {
     color: #FFF;
     padding-top: 20px;
