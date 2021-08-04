@@ -1,7 +1,7 @@
 let board = {
     a1: '', a2: '', a3: '',
     b1: '', b2: '', b3: '',
-    c1: '', c2: '', c3: '',
+    c1: '', c2: '', c3: ''
 };
 
 let whoseTurn = '';
@@ -11,18 +11,18 @@ let gameisActive = false;
 reset();
 
 document.querySelector('.reset').addEventListener('click', reset);
-document.querySelectorAll('.item').forEach(item => {
-    item.addEventListener('click', itemClick);
-});
 
-function itemClick(event) {
-    const item = event.target.getAttribute('data-item');
-    if(gameisActive && board[item] === '') {
-        board[item] = whoseTurn;
-        renderSquare();
-        togglePlayer();
-    }
-}
+document.querySelectorAll('.item').forEach((item)=>{
+    item.addEventListener('click', (event) => {
+        let getItem = event.target.getAttribute('data-item');
+        
+        if(gameisActive && board[getItem] === '') {
+            board[getItem] = whoseTurn;
+            renderBoard();
+            togglePlayer();
+        }
+    });
+});
 
 function reset() {
     warning = '';
@@ -33,17 +33,22 @@ function reset() {
     for(let i in board) {
         board[i] = '';
     }
-
-    renderSquare();
+    
+    renderBoard();
     renderInfo();
 
     gameisActive = true;
 }
 
-function renderSquare() {
-    for(let i in board){
-        const item = document.querySelector(`div[data-item=${i}]`)
-        item.innerHTML = board[i];
+function renderBoard() {
+    for(let i in board) {
+        const item = document.querySelector(`div[data-item=${i}]`);
+
+        if(board[i] !== '') {
+            item.innerHTML = board[i];
+        } else {
+            item.innerHTML = '';
+        }
     }
 
     checkGame();
@@ -52,20 +57,19 @@ function renderSquare() {
 function renderInfo() {
     document.querySelector('.turn').innerHTML = whoseTurn;
     document.querySelector('.result').innerHTML = warning;
-
 }
 
 function togglePlayer() {
-    whoseTurn = (whoseTurn === 'X') ? 'O'  : 'X';
+    whoseTurn = whoseTurn === 'X' ? 'O' : 'X';
     renderInfo();
 }
 
 function checkGame() {
     if(checkWinnerFor('X')) {
-        warning = 'O vencedor é: "X"!';
+        warning = 'O vencedor é: X!';
         gameisActive = false;
-    } else if (checkWinnerFor('O')) {
-        warning = 'O vencedor é: "O"!';
+    } else if(checkWinnerFor('O')) {
+        warning = 'O vencedor é: O!';
         gameisActive = false;
     } else if(isFull()) {
         warning = 'Deu empate!';
@@ -75,24 +79,22 @@ function checkGame() {
 
 function checkWinnerFor(i) {
     const possibilities = [
-        'a1, a2, a3',
-        'b1, b2, b3',
-        'c1, c2, c3',
+        'a1,a2,a3',
+        'b1,b2,b3',
+        'c1,c2,c3',
 
-        'a1, b1, c1',
-        'a2, b2, c2',
-        'a3, b3, c3',
+        'a1,b1,c1',
+        'a2,b2,c2',
+        'a3,b3,c3',
 
-        'a1, b2, c3',
-        'a3, b2, c1'
+        'a1,b2,c3',
+        'a3,b2,c1'
     ];
-    
+
     for(let w in possibilities) {
         const possibilitiesArray = possibilities[w].split(',');
         const hasWon = possibilitiesArray.every(option => board[option] === i);
-        if(hasWon) {
-            return true;
-        }
+        if(hasWon) return true;
     }
     return false;
 }
