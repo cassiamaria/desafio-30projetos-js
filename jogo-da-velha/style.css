@@ -40,16 +40,10 @@ h1 {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.item.t {
-    border-top: 1px solid #FFF;
-}
-.item.l {
-    border-left: 1px solid #FFF;
-}
-.item.r {
+.item.borderRight {
     border-right: 1px solid #FFF;
 }
-.item.b {
+.item.borderBottom {
     border-bottom: 1px solid #FFF;
 }
 
@@ -60,15 +54,15 @@ h1 {
     border: 1px dotted #FFF;
     padding: 10px;
 }
-.infoitem {
+.infoItem {
     flex: 1;
 }
-.infotitulo {
+.infoTitle {
     text-align: center;
     color: #FFF;
     margin-bottom: 10px;
 }
-.infocorpo {
+.infoBody {
     text-align: center;
     color: #FFF;
     font-size: 20px;
@@ -80,4 +74,5 @@ h1 {
     color: #FFF;
     padding: 10px;
     margin-top: 20px;
+    cursor: pointer;
 }
