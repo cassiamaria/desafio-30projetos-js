@@ -3,7 +3,7 @@ let canDraw = false;
 let mouseX = 0;
 let mouseY = 0;
 
-let screen = document.querySelector("#screen");
+let screen = document.querySelector("#canvasScreen");
 let contextCanvas = screen.getContext("2d");
 
 document.querySelectorAll(".colorArea .color").forEach((item) => {
