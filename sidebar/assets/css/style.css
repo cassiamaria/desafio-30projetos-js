@@ -116,7 +116,7 @@ img {
     height: 100vh;
     padding: 1rem 1rem 0;
     background-color: var(--container-color);
-    box-shadow: 1px 0 0 rgba(22, 8, 43, .1);
+    box-shadow: 1px 0 0 rgba(22, 8, 43, 0.1);
     z-index: 100;
     transition: .4s;
 }
@@ -136,7 +136,7 @@ img {
 }
 
 .nav-logo {
-    font-weight: 600;  /*olhar font-semi-bold*/
+    font-weight: 600;
     margin-bottom: 2.5rem;
 }
 
@@ -157,7 +157,7 @@ img {
     font-size: var(--normal-font-size);
     text-transform: uppercase;
     letter-spacing: .1rem;
-    color: var(--text-color-light)
+    color: var(--text-color-light);
 }
 
 .nav-link {
@@ -204,7 +204,7 @@ img {
 }
 
 .nav-dropdown-item {
-    font-size: var(--small-font-size);
+    font-size: var(--smaller-font-size);
     font-weight: 500;
     color: var(--text-color);
 }
@@ -278,7 +278,7 @@ section p {
 
     .nav {
         left: 0;
-        prefix: 1.2rem 1.5rem 0;
+        padding: 1.2rem 1.5rem 0;
         width: 68px;
     }
     
