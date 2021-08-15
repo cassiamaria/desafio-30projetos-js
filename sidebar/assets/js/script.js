@@ -17,8 +17,8 @@ showMenu('header-toggle', 'navbar');
 const linkColor = document.querySelectorAll('.nav-link')
 
 function colorLink() {
-    linkColor.forEach(color = color.classList.remove('active'))
+    linkColor.forEach(color => color.classList.remove('active'))
     this.classList.add('active')
 }
 
-linkColor.forEach(color = color.classList.remove('click', colorLink))
+linkColor.forEach(color => color.addEventListener('click', colorLink))
